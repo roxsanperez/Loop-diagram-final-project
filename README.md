@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Combined mockup: Left = Current System, Right = Recommended System -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="600" viewBox="0 0 1400 600">
+  <defs>
+    <!-- Arrow marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#222" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#27AE60" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3498DB" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E74C3C" />
+    </marker>
+    <!-- Styles -->
+    <style>
+      .title { font: bold 16px Arial, sans-serif; fill: #222 }
+      .label { font: 11px Arial, sans-serif; fill: #111 }
+      .small { font: 10px Arial, sans-serif; fill: #111 }
+      .rect { rx:6; ry:6; stroke:#222; stroke-width:1; fill:#f3f3f3 }
+      .rect-blue { fill:#3498DB; stroke:#2D86C7 }
+      .rect-green { fill:#27AE60; stroke:#1f8a42 }
+      .rect-red { fill:#FDECEA; stroke:#E74C3C; stroke-width:1.5 }
+      .rect-gray { fill:#ECEFF1; stroke:#95A5A6 }
+      .cyl { fill:#F1C40F; stroke:#D4A80A }
+      .loop-red { stroke:#E74C3C; stroke-width:2.4; fill:none }
+      .loop-red-dash { stroke:#E74C3C; stroke-width:2; stroke-dasharray:8 6; fill:none }
+      .loop-green { stroke:#27AE60; stroke-width:2.4; fill:none }
+      .connector { stroke:#222; stroke-width:1.2; fill:none }
+      .connector-blue { stroke:#3498DB; stroke-width:1.4; fill:none }
+      .connector-green { stroke:#27AE60; stroke-width:1.4; fill:none }
+      .dashed-red { stroke:#E74C3C; stroke-width:1.2; stroke-dasharray:6 4; fill:none }
+      .legend { font: 10px Arial, sans-serif; fill:#222 }
+      .box-title { font: bold 13px Arial, sans-serif; fill:#111 }
+    </style>
+  </defs>
+
+  <!-- Left panel: Current System -->
+  <rect x="30" y="20" width="660" height="560" rx="8" ry="8" fill="#ffffff" stroke="#dddddd" />
+  <text x="350" y="46" class="title" text-anchor="middle">Figure 1 — Current System State</text>
+
+  <!-- Nodes -->
+  <!-- Online Order Portal -->
+  <rect x="60" y="90" width="150" height="50" class="rect-blue" />
+  <text x="135" y="120" class="label" text-anchor="middle">Online Order Portal</text>
+
+  <!-- Retail POS -->
+  <rect x="240" y="90" width="150" height="50" class="rect-blue" />
+  <text x="315" y="120" class="label" text-anchor="middle">Retail POS (Austin)</text>
+  <text x="315" y="135" class="small" text-anchor="middle" fill="#E74C3C">updates weekly</text>
+
+  <!-- Warehouse Associates (group) -->
+  <rect x="60" y="200" width="150" height="90" class="rect-gray" />
+  <text x="135" y="225" class="label" text-anchor="middle">Warehouse Associates</text>
+  <text x="135" y="245" class="small" text-anchor="middle">pick & manual update</text>
+
+  <!-- Single Shared Computer (bottleneck) -->
+  <rect x="250" y="220" width="220" height="80" class="rect-red" />
+  <text x="360" y="255" class="label" text-anchor="middle"><tspan>Single Shared</tspan><tspan x="360" dy="14">Computer Terminal</tspan></text>
+  <text x="360" y="286" class="small" text-anchor="middle" fill="#E74C3C">BOTTLE‑NECK: sequential access</text>
+
+  <!-- Fulfillment -->
+  <rect x="520" y="210" width="110" height="70" class="rect-gray" />
+  <text x="575" y="244" class="label" text-anchor="middle">Fulfillment / Packaging</text>
+
+  <!-- Inventory DB -->
+  <ellipse cx="360" cy="360" rx="105" ry="30" class="cyl" />
+  <text x="360" y="360" class="label" text-anchor="middle">Inventory DB (Inventory Level)</text>
+
+  <!-- Customers -->
+  <rect x="620" y="90" width="100" height="50" class="rect-green" />
+  <text x="670" y="120" class="label" text-anchor="middle">Customer (Online)</text>
+
+  <rect x="620" y="200" width="100" height="50" class="rect-green" />
+  <text x="670" y="230" class="label" text-anchor="middle">Customer (Retail)</text>
+
+  <!-- Connectors (curved) -->
+  <path d="M210 115 C230 115 240 200 180 235" class="connector-blue" marker-end="url(#arrow-blue)"/>
+  <text x="200" y="135" class="small">Order intake</text>
+
+  <path d="M390 140 C430 155 470 190 520 235" class="connector" marker-end="url(#arrow)"/>
+  <text x="455" y="150" class="small" text-anchor="middle">Order → computer</text>
+
+  <!-- Retail POS weekly to Inventory DB (dashed) -->
+  <path d="M315 145 C340 185 350 230 360 330" class="dashed-red" marker-end="url(#arrow-red)"/>
+  <text x="365" y="230" class="small" fill="#E74C3C">Weekly batch update</text>
+
+  <!-- Warehouse Associates -> Computer -->
+  <path d="M210 240 C230 240 260 240 250 240" class="connector" marker-end="url(#arrow)"/>
+  <path d="M210 275 C240 275 260 275 250 275" class="connector" marker-end="url(#arrow)"/>
+  <path d="M210 300 C235 300 260 300 250 300" class="connector" marker-end="url(#arrow)"/>
+  <text x="220" y="312" class="small">Access computer</text>
+
+  <!-- Computer -> Warehouse pick instructions -->
+  <path d="M470 240 C440 250 420 270 320 290" class="connector" marker-end="url(#arrow)"/>
+  <text x="360" y="258" class="small">Pick instructions</text>
+
+  <!-- Warehouse -> Fulfillment (items pulled) -->
+  <path d="M210 285 C320 320 470 320 520 245" class="connector" marker-end="url(#arrow)"/>
+  <text x="350" y="310" class="small">Items pulled</text>
+
+  <!-- Warehouse -> Inventory DB (manual delayed update) -->
+  <path d="M210 310 C280 330 320 340 360 350" class="dashed-red" marker-end="url(#arrow-red)"/>
+  <text x="260" y="340" class="small" fill="#E74C3C">Manual update (delayed)</text>
+
+  <!-- Fulfillment -> Customer Online (ship) -->
+  <path d="M630 245 C650 200 690 170 670 115" class="connector" marker-end="url(#arrow)"/>
+  <text x="640" y="190" class="small">Ship (USPS)</text>
+
+  <!-- Feedback Loops (arcs) -->
+  <!-- R1: large dashed red loop: Fulfillment -> Customer -> Online Portal -> WA -> Fulfillment -->
+  <path d="M580 250 C700 260 800 140 680 120 C600 110 400 110 350 130 C300 150 250 200 300 260 C400 300 480 310 580 250" class="loop-red-dash" marker-end="url(#arrow-red)"/>
+  <text x="660" y="160" class="small" fill="#E74C3C">R1 (fragile)</text>
+
+  <!-- B1: medium red arc above computer -->
+  <path d="M320 200 C380 170 440 170 500 200" class="loop-red" marker-end="url(#arrow-red)"/>
+  <text x="405" y="170" class="small" fill="#E74C3C">B1: Market Saturation</text>
+
+  <!-- B2: circular arc around computer -->
+  <path d="M300 260 C320 210 480 210 500 260 C480 300 320 300 300 260" class="loop-red" marker-end="url(#arrow-red)"/>
+  <text x="360" y="235" class="small" fill="#E74C3C">B2: Capacity Constraint</text>
+
+  <!-- Legend (left) -->
+  <rect x="60" y="420" width="260" height="120" rx="6" ry="6" fill="#fff" stroke="#ccc"/>
+  <text x="80" y="442" class="legend">Legend</text>
+  <rect x="80" y="455" width="14" height="10" fill="#E74C3C" stroke="#E74C3C"/>
+  <text x="100" y="464" class="small">Problem / bottleneck</text>
+  <rect x="80" y="480" width="14" height="10" fill="#3498DB" stroke="#3498DB"/>
+  <text x="100" y="489" class="small">Data / orders</text>
+  <rect x="80" y="505" width="14" height="10" fill="#27AE60" stroke="#27AE60"/>
+  <text x="100" y="514" class="small">Customers / output</text>
+
+  <!-- Right panel: Recommended System -->
+  <rect x="700" y="20" width="660" height="560" rx="8" ry="8" fill="#ffffff" stroke="#dddddd" />
+  <text x="1030" y="46" class="title" text-anchor="middle">Figure 2 — Recommended System State</text>
+
+  <!-- Nodes right -->
+  <rect x="730" y="90" width="120" height="50" class="rect-blue" />
+  <text x="790" y="120" class="label" text-anchor="middle">Online Order Portal</text>
+
+  <rect x="870" y="90" width="120" height="50" class="rect-blue" />
+  <text x="930" y="120" class="label" text-anchor="middle">Retail POS (real‑time)</text>
+
+  <circle cx="1060" cy="115" r="40" class="rect-green" stroke="#1f8a42" />
+  <text x="1060" y="115" class="label" text-anchor="middle">Real‑Time<br/>Sync Hub</text>
+
+  <!-- Warehouse terminals row -->
+  <rect x="730" y="200" width="120" height="40" class="rect-green" />
+  <text x="790" y="225" class="small" text-anchor="middle">Terminal 1</text>
+
+  <rect x="870" y="200" width="120" height="40" class="rect-green" />
+  <text x="930" y="225" class="small" text-anchor="middle">Terminal 2</text>
+
+  <rect x="1010" y="200" width="120" height="40" class="rect-green" />
+  <text x="1070" y="225" class="small" text-anchor="middle">Terminal 3</text>
+
+  <!-- Central Inventory DB -->
+  <ellipse cx="1060" cy="290" rx="90" ry="28" class="cyl" />
+  <text x="1060" y="290" class="label" text-anchor="middle">Central Inventory DB</text>
+
+  <!-- Fulfillment -->
+  <rect x="1200" y="250" width="120" height="70" class="rect-gray" />
+  <text x="1260" y="287" class="label" text-anchor="middle">Fulfillment / Packaging</text>
+  <text x="1260" y="302" class="small" text-anchor="middle">USPS API</text>
+
+  <!-- Buyer Dashboard -->
+  <rect x="730" y="300" width="200" height="70" class="rect-gray" />
+  <text x="830" y="335" class="label" text-anchor="middle">Buyer Dashboard (Realtime)</text>
+
+  <!-- Customers -->
+  <rect x="1200" y="90" width="120" height="50" class="rect-green" />
+  <text x="1260" y="120" class="label" text-anchor="middle">Customers (All)</text>
+
+  <!-- Unified Loyalty -->
+  <rect x="1200" y="340" width="120" height="40" class="rect-green" />
+  <text x="1260" y="365" class="small" text-anchor="middle">Unified Loyalty</text>
+
+  <!-- Connectors right (solid green/blue) -->
+  <path d="M850 115 C920 115 980 115 1020 115" class="connector-green" marker-end="url(#arrow-green)"/>
+  <text x="925" y="105" class="small" text-anchor="middle">Order / Sale (real‑time)</text>
+
+  <path d="M1060 155 C1060 190 1060 250 1060 262" class="connector-green" marker-end="url(#arrow-green)"/>
+  <text x="1140" y="185" class="small">Sync → DB</text>
+
+  <path d="M790 220 C810 250 930 270 1030 270" class="connector-green" marker-end="url(#arrow-green)"/>
+  <text x="900" y="235" class="small">Scan → Update (instant)</text>
+
+  <path d="M1145 318 C1180 300 1220 300 1230 285" class="connector" marker-end="url(#arrow)"/>
+  <text x="1195" y="295" class="small">Pick list</text>
+
+  <path d="M1260 300 C1280 270 1280 180 1260 140" class="connector-green" marker-end="url(#arrow-green)"/>
+  <text x="1250" y="210" class="small">Ship (USPS API)</text>
+
+  <path d="M1060 320 C940 340 820 330 820 335" class="connector-blue" marker-end="url(#arrow-blue)"/>
+  <text x="930" y="350" class="small">Inventory / Forecasts → Buyer</text>
+
+  <!-- Positive reinforcing loop (green arc) -->
+  <path d="M1100 320 C1200 360 1240 220 1220 150 C1160 140 970 145 910 170 C840 200 880 300 1100 320" class="loop-green" marker-end="url(#arrow-green)"/>
+  <text x="1180" y="210" class="small" fill="#27AE60">R1: accuracy → satisfaction → sales</text>
+
+  <!-- Threshold balancing loop (small) -->
+  <path d="M1015 310 C980 330 900 320 870 305" class="loop-green" marker-end="url(#arrow-green)"/>
+  <text x="940" y="310" class="small" fill="#27AE60">Auto alert → reorder</text>
+
+  <!-- Legend (right) -->
+  <rect x="720" y="420" width="300" height="120" rx="6" ry="6" fill="#fff" stroke="#ccc"/>
+  <text x="740" y="442" class="legend">Legend (Recommended)</text>
+  <rect x="740" y="460" width="14" height="10" fill="#27AE60" stroke="#27AE60"/>
+  <text x="760" y="469" class="small">Real‑time / improved flow</text>
+  <rect x="740" y="485" width="14" height="10" fill="#F1C40F" stroke="#D4A80A"/>
+  <text x="760" y="494" class="small">Central inventory DB</text>
+  <rect x="740" y="510" width="14" height="10" fill="#95A5A6" stroke="#95A5A6"/>
+  <text x="760" y="519" class="small">Processes / dashboards</text>
+
+  <!-- Footer note -->
+  <text x="700" y="575" class="small" text-anchor="middle">Mockup wireframe: left = current (problematic loops: R1/B1/B2), right = recommended (real‑time, parallel, stabilizing loops)</text>
+</svg>
