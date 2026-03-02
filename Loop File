@@ -218,3 +218,5 @@
   <!-- Footer note -->
   <text x="700" y="575" class="small" text-anchor="middle">Mockup wireframe: left = current (problematic loops: R1/B1/B2), right = recommended (real‑time, parallel, stabilizing loops)</text>
 </svg>
+
+
